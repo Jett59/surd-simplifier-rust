@@ -56,13 +56,10 @@ fn calculate_step(radicand: u32, coefficient: u32) -> Option<Surd> {
     }
     // Rule of trial and error.
     // We only have to check 6n-1 and 6n+1. This is because we only need to check for divisibility by the squares of prime numbers, which are all of the form 6n-1 or 6n+1.
-    for n in 1..radicand {
+    for n in 1.. {
         let six_n = 6 * n;
         let mut prime_number = six_n - 1;
         let mut square_number = prime_number * prime_number;
-        if radicand < square_number {
-            break;
-        }
         if radicand % square_number == 0 {
             return Some(Surd {
                 radicand: radicand / square_number,
@@ -74,7 +71,7 @@ fn calculate_step(radicand: u32, coefficient: u32) -> Option<Surd> {
                 },
             });
         }
-        prime_number = six_n - 1;
+        prime_number = six_n + 1;
         square_number = prime_number * prime_number;
         if radicand < square_number {
             break;
