@@ -43,7 +43,7 @@ impl Display for Surd {
         }
         // Add the working step if there is one.
         if self.working_step.previous_radicand != 0 {
-            write!(f, "(because {} was divisible by {}, which I know because of the rule of {})", self.working_step.previous_radicand, self.working_step.square_number, self.working_step.divisibility_rule);
+            write!(f, "(because {} was divisible by {}, which I know because of the rule of {})", self.working_step.previous_radicand, self.working_step.square_number, self.working_step.divisibility_rule)?;
         }
         Ok(())
     }
